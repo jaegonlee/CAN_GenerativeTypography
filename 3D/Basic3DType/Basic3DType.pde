@@ -51,7 +51,7 @@ void draw() {
   strokeWeight(0.5);
   for (HE_Face face : mesh.getFacesAsArray ()) {
     // colors are stored in each Face's label (see colorFaces() method below)
-    fill(face.getLabel());
+    fill(face.getUserLabel());
     // draw the face using Hemesh's render class
     render.drawFace(face, false);
   }
@@ -118,7 +118,7 @@ void colorFaces(HE_Mesh mesh) {
   colorMode(HSB, 1); // set colorMode to HSB
   for (HE_Face face : mesh.getFacesAsArray ()) {
     WB_Coord c = face.getFaceCenter();
-    face.setLabel(color(map(c.xf() + c.yf(), -500, 500, 0, 1), 1, 1));
+    face.setUserLabel(color(map(c.xf() + c.yf(), -500, 500, 0, 1), 1, 1));
   }
   colorMode(RGB, 255); // (re)set colorMode to RGB
 }
